@@ -46,7 +46,7 @@ public class OpenWeatherMapService {
     private static final String UNITS = "metric";
 
     // TODO Add an preference in settings to customize this
-    private static final int FORECAST_DAYS = 5;
+    private static final int FORECAST_DAYS = 3;
 
     // OpenWeatherMap allows like or accurate, let's use like so we return more choices to the user
     private static final String SEARCH_CITY_TYPE = "like";
