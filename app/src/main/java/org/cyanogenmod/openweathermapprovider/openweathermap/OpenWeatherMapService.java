@@ -186,7 +186,7 @@ public class OpenWeatherMapService {
             builder.setHumidity(humidity);
         }
 
-        final double todaysHigh = currentWeatherResponse.getTodaysMaxTemp();
+/*        final double todaysHigh = currentWeatherResponse.getTodaysMaxTemp();
         if (!Double.isNaN(todaysHigh)) {
             builder.setTodaysHigh(todaysHigh);
         }
@@ -195,7 +195,7 @@ public class OpenWeatherMapService {
         if (!Double.isNaN(todaysLow)) {
             builder.setTodaysLow(todaysLow);
         }
-
+*/
         final double windDir = currentWeatherResponse.getWindDirection();
         final double windSpeed = currentWeatherResponse.getWindSpeed();
         if (!Double.isNaN(windDir) && !Double.isNaN(windSpeed)) {
@@ -221,6 +221,17 @@ public class OpenWeatherMapService {
 
                 forecastList.add(forecastBuilder.build());
             }
+
+            final double todaysHigh = forecastList.get(0).getHigh();
+            if (!Double.isNaN(todaysHigh)) {
+                builder.setTodaysHigh(todaysHigh);
+            }
+
+            final double todaysLow = forecastList.get(0).getLow();
+            if (!Double.isNaN(todaysLow)) {
+                builder.setTodaysLow(todaysLow);
+            }
+
             builder.setForecast(forecastList);
         }
         return builder.build();
